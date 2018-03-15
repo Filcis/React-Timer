@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {TimerInput} from './components/TimerInput';
-import {Timer} from './components/Timer';
+import {Clock} from './components/Clock';
+import {Controls, OptionsButton} from './components/Buttons';
 import './style/scss/style.scss'
 
 class TimerApp extends React.Component {
@@ -9,9 +10,19 @@ class TimerApp extends React.Component {
     super();
 
     this.state = {
-        intervalTime : 30,
-        restTime: 5,
-        sets: 3
+      //initial timer options
+        intervalTime : 20,
+        restTime: 3,
+        sets: 3,
+
+        isActive: false,
+        isPlaying: false,
+        isOptions: false,
+
+        currentTime: 30,
+        currentSets: 3,
+
+        currentTrainingState: "training",
     }
   }
 
@@ -37,17 +48,111 @@ class TimerApp extends React.Component {
     }
   }
 
+  startTraining () {
+    this.setState(() => {
+      // set state to active, update current time and sets
+      return {isActive: true, currentTime:this.state.intervalTime, isPlaying: true}
+    });
+
+  }
+
+  toggleOptionsHandler () {
+    this.setState((prevState) => {
+      return {isOptions: !prevState.isOptions}
+    }
+  );
+  }
+
+  togglePlayHandler () {
+    this.setState((prevState) => {
+      return {isPlaying: !prevState.isPlaying}
+    }
+  );
+  }
+
+  resetHandler () {
+    this.setState((prevState) => {
+      return {isActive: !prevState.isActive, isPlaying: false}
+    }
+  );
+  }
+
+  decrementState(state, value = 1) {
+    this.setState((prevState) => {
+      return {[state]: prevState[state] - value}
+    });
+  }
+
+  countDown() {
+    // decrement state as long as its bigger than 0
+    if (this.state.currentTime !== 0) {
+      this.decrementState("currentTime", 1);
+    } else {
+      if (this.state.currentSets !== 0 && this.state.currentTrainingState === "training") {
+        this.decrementState("currentSets", 1);
+      } else if(this.state.currentSets === 0) {
+        this.pauseClock();
+        return;
+      }
+      this.switchTrainingState();
+    }
+  }
+
+  startClock() {
+    this.TimerInstantion = setInterval(this.countDown.bind(this) , 1000);
+  }
+
+  pauseClock() {
+    clearInterval(this.TimerInstantion);
+  }
+
+  switchTrainingState() {
+    this.setState((prevState) => {
+      if (this.state.currentTrainingState === "training") {
+        return {currentTrainingState: "resting", currentTime: this.state.restTime};
+      } else {
+        return {currentTrainingState: "training", currentTime: this.state.intervalTime};
+
+      }
+    })
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(this.state.isPlaying !== prevState.isPlaying) {
+      this.state.isPlaying ? this.startClock() : this.pauseClock();
+    }
+  }
+
   render() {
-    return(
-      <div id="TimerInnerWrapper">
-        <TimerInput
-          timerOptions={this.state}
-          handleIncrementButton={this.handleIncrementButton.bind(this)}
-          handleDecrementButton={this.handleDecrementButton.bind(this)}
-        />
-        <Timer timerOptions={this.state}/>
-      </div>
-    )
+    if(this.state.isOptions) {
+      return(
+        <div id="TimerInnerWrapper">
+          <OptionsButton toggleOptionsHandler={this.toggleOptionsHandler.bind(this)}  isActive={this.state.isActive} />
+          <TimerInput
+            timerOptions={this.state}
+            handleIncrementButton={this.handleIncrementButton.bind(this)}
+            handleDecrementButton={this.handleDecrementButton.bind(this)}
+          />
+        </div>
+      )
+    } else {
+      return(
+        <div id="TimerInnerWrapper">
+          <OptionsButton toggleOptionsHandler={this.toggleOptionsHandler.bind(this)}  isActive={this.state.isActive} />
+          <Clock
+          isActive={this.state.isActive}
+          trainingState={this.state.currentTrainingState}
+          currentTime={this.state.currentTime}
+           />
+          <Controls
+            isActive={this.state.isActive}
+            startButtonHandler={this.startTraining.bind(this)}
+            togglePlayButtonHandler={this.togglePlayHandler.bind(this)}
+            resetHandler={this.resetHandler.bind(this)}
+          />
+        </div>
+      )
+    }
   }
 }
 
