@@ -1,34 +1,49 @@
-#app {
-  max-width: 1020px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 3em;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html,
+body {
+    height: 100%;
+    font-family: Roboto;
 }
 
-#TimerInnerWrapper {
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
+body {
+  color: white;
+  background-color: steelblue;
 }
 
-h1 {
-    font-size: 2em;
-}
-
-.rest {
-  color: green;
-}
-
-.clockContainer {
-  height: 250px;
-  width: 250px;
-}
-
-.optionsWrapper {
+.container {
   display: flex;
-  margin: auto;
-  margin-bottom: 3em;
-  div {
-    margin: auto;
+  flex-direction: column;
+}
+
+.mainContentWrapper{
+  max-width: 1040px;
+  margin:4em auto;
+}
+
+button {
+  border: 1px solid white;
+  background: none;
+  padding: 0.7em;
+  border-radius: 0.5em;
+  color: white;
+}
+
+menu {
+  margin: 0;
+  padding: 0 2em;
+  display: flex;
+  background-color: #374e61;
+  position: relative;
+  h1 {
+    flex-grow: 2;
+    text-align: center;
   }
+}
+
+.optionsButtonWrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  height: 100%;
 }

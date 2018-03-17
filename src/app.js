@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {TimerInput} from './components/TimerInput';
 import {Clock} from './components/Clock';
 import {Controls, OptionsButton} from './components/Buttons';
+import 'normalize.css';
 import './style/scss/style.scss'
 
 class TimerApp extends React.Component {
@@ -124,21 +125,18 @@ class TimerApp extends React.Component {
   }
 
   render() {
-    if(this.state.isOptions) {
-      return(
-        <div id="TimerInnerWrapper">
-          <OptionsButton toggleOptionsHandler={this.toggleOptionsHandler.bind(this)}  isActive={this.state.isActive} />
-          <TimerInput
-            timerOptions={this.state}
-            handleIncrementButton={this.handleIncrementButton.bind(this)}
-            handleDecrementButton={this.handleDecrementButton.bind(this)}
-          />
-        </div>
-      )
-    } else {
-      return(
-        <div id="TimerInnerWrapper">
-          <OptionsButton toggleOptionsHandler={this.toggleOptionsHandler.bind(this)}  isActive={this.state.isActive} />
+    let content = null;
+      if(this.state.isOptions) {
+          content = (
+            <TimerInput
+              timerOptions={this.state}
+              handleIncrementButton={this.handleIncrementButton.bind(this)}
+              handleDecrementButton={this.handleDecrementButton.bind(this)}
+            />
+          )
+      } else {
+        content = (
+          <div>
           <Clock
           isActive={this.state.isActive}
           trainingState={this.state.currentTrainingState}
@@ -150,10 +148,30 @@ class TimerApp extends React.Component {
             togglePlayButtonHandler={this.togglePlayHandler.bind(this)}
             resetHandler={this.resetHandler.bind(this)}
           />
+          </div>
+        )
+      }
+
+      return(
+        <div className="container">
+          <MenuBar toggleOptionsHandler={this.toggleOptionsHandler.bind(this)}  isActive={this.state.isActive} title="React Timer"/>
+          <div className="mainContentWrapper">
+            {content}
+          </div>
         </div>
-      )
-    }
+      );
   }
+}
+
+const MenuBar = (props) => {
+  return (
+    <menu>
+    <div className="optionsButtonWrapper">
+      <OptionsButton toggleOptionsHandler={props.toggleOptionsHandler}  isActive={props.isActive} />
+    </div>
+      <h1>{props.title}</h1>
+    </menu>
+  )
 }
 
 ReactDOM.render(<TimerApp />, document.getElementById('app'));
