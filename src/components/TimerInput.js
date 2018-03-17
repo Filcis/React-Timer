@@ -6,13 +6,14 @@ export class TimerInput extends React.Component {
     super(props);
   }
 
-  renderOption(i, convertToMs = false) {
+  renderOption(i, convertToMs = false, optionName) {
     let value = '';
     convertToMs ? value = secondsToMs(this.props.timerOptions[i]) : value = this.props.timerOptions[i];
     return (
       <TimerOption
         disabled={this.props.timerOptions.trainingStarted}
         OptionValue={value}
+        OptionName={optionName}
         handleIncrementButton={this.props.handleIncrementButton(i)}
         handleDecrementButton={this.props.handleDecrementButton(i)}
       />
@@ -26,19 +27,22 @@ export class TimerInput extends React.Component {
   render() {
     return (
       <div className = "optionsWrapper">
-          {this.renderOption("intervalTime", true)}
-          {this.renderOption("restTime", true)}
-          {this.renderOption("sets")}
+          {this.renderOption("intervalTime", true, "Czas interwału")}
+          {this.renderOption("restTime", true, "Czas odpoczynku")}
+          {this.renderOption("sets",false, "Liczba powtórzeń")}
       </div>
     )
   }
 }
 
 const TimerOption = (props) => (
-  <div>
-    <IncrementButton clickHandler={props.handleIncrementButton} disabled={props.disabled}/>
-    <p>{props.OptionValue}</p>
-    <DecrementButton clickHandler={props.handleDecrementButton} disabled={props.disabled}/>
+  <div className="option">
+    <p>{props.OptionName}</p>
+    <div>
+      <IncrementButton clickHandler={props.handleIncrementButton} disabled={props.disabled}/>
+      <p>{props.OptionValue}</p>
+      <DecrementButton clickHandler={props.handleDecrementButton} disabled={props.disabled}/>
+    </div>
   </div>
 )
 
