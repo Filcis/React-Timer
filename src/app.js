@@ -126,6 +126,7 @@ class TimerApp extends React.Component {
 
   render() {
     let content = null;
+
       if(this.state.isOptions) {
           content = (
             <TimerInput
@@ -142,6 +143,7 @@ class TimerApp extends React.Component {
           trainingState={this.state.currentTrainingState}
           currentTime={this.state.currentTime}
           initialTime={this.state.intervalTime}
+          restTime={this.state.restTime}
            />
           <Controls
             isActive={this.state.isActive}
