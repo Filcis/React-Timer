@@ -20,7 +20,7 @@ class TimerApp extends React.Component {
         isPlaying: false,
         isOptions: false,
 
-        currentTime: 30,
+        currentTime: 20,
         currentSets: 3,
 
         currentTrainingState: "training",
@@ -141,6 +141,7 @@ class TimerApp extends React.Component {
           isActive={this.state.isActive}
           trainingState={this.state.currentTrainingState}
           currentTime={this.state.currentTime}
+          initialTime={this.state.intervalTime}
            />
           <Controls
             isActive={this.state.isActive}

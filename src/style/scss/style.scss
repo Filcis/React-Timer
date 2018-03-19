@@ -58,3 +58,16 @@ menu {
    margin: 0 auto;
  }
 }
+
+.progressBarWrapper {
+  margin:2em;
+  position: relative;
+  h2 {
+    font-size: 3em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+}

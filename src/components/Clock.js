@@ -1,5 +1,7 @@
 import React from 'react';
-import {secondsToMs} from '../utils/utilities.js'
+import {secondsToMs} from '../utils/utilities.js';
+import {ProgressCircle} from './progressCircle.js'
+
 
 export class Clock extends React.Component {
   constructor(props) {
@@ -16,13 +18,15 @@ export class Clock extends React.Component {
   }
 
   render() {
-    const time = secondsToMs(this.props.currentTime)
+    const currentTime = secondsToMs(this.props.currentTime);
+    const initialTime = secondsToMs(this.props.initialTime);
+
     return (
       <div>
       {this.props.isActive ? (
-                <p>timer aktywny, pozostało: {time}</p>
+            <ProgressCircle trainingState={this.props.trainingState} timeLeft={currentTime}/>
             ) : (
-                <p>timer nieaktywny</p>
+            <ProgressCircle timeLeft={initialTime} />
             )}
       </div>
     )
