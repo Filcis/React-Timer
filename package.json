@@ -2,7 +2,7 @@
   "name": "React_Timer",
   "version": "1.0.0",
   "description": "React sport timer, made while learning React",
-  "author": "Filip Ciślak",
+  "author": "Filip Cislak",
   "main": "app.js",
   "browserslist": [
     "> 5%",
@@ -10,11 +10,10 @@
   ],
   "scripts": {
     "test": "test",
-    "build": "webpack",
+    "build": "webpack --config webpack.prod.js",
     "watch": "webpack -d --watch",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --open --config webpack.dev.js"
   },
-  "author": "Filip Cislak",
   "license": "ISC",
   "dependencies": {
     "normalize.css": "^8.0.0",
@@ -37,7 +36,9 @@
     "postcss-plugin": "^1.0.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.1",
+    "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "^2.11.1",
+    "webpack-merge": "^4.1.2"
   }
 }
