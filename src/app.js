@@ -73,7 +73,7 @@ class TimerApp extends React.Component {
 
   resetHandler () {
     this.setState((prevState) => {
-      return {isActive: !prevState.isActive, isPlaying: false}
+      return {isActive: !prevState.isActive, isPlaying: false, currentTrainingState: "training"}
     }
   );
   }

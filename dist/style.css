@@ -1,4 +1,4 @@
-/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+@import url(https://fonts.googleapis.com/css?family=Roboto);/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
    ========================================================================== */
@@ -343,35 +343,81 @@ template {
 [hidden] {
   display: none;
 }
+html,
 body {
+  height: 100%;
+  font-family: Roboto; }
+
+body {
+  color: white;
   background-color: steelblue; }
 
-::-webkit-input-placeholder {
-  color: gray; }
-
-:-ms-input-placeholder {
-  color: gray; }
-
-::-ms-input-placeholder {
-  color: gray; }
-
-::placeholder {
-  color: gray; }
-
-.test {
+.container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-transition: all .4s;
-  transition: all .4s;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(black));
-  background: linear-gradient(to bottom, white, black); }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
-.test2 {
+.mainContentWrapper {
+  max-width: 1040px;
+  margin: 4em auto; }
+
+button {
+  border: 1px solid white;
+  background: none;
+  padding: 0.7em;
+  border-radius: 0.5em;
+  color: white; }
+
+menu {
+  margin: 0;
+  padding: 0 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #374e61;
+  position: relative; }
+  menu h1 {
+    -webkit-box-flex: 2;
+        -ms-flex-positive: 2;
+            flex-grow: 2;
+    text-align: center; }
+
+.optionsButtonWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  height: 100%; }
+
+.optionsWrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
+
+.option {
+  margin: 0 2em; }
+  .option div {
+    margin: 0 auto; }
+
+.progressBarWrapper {
+  margin: 2em;
+  position: relative; }
+  .progressBarWrapper h2 {
+    font-size: 3em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    margin: 0; }
+
+.progressValue {
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s; }

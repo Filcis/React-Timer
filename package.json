@@ -1,7 +1,8 @@
 {
-  "name": "react_tabata_timer",
-  "version": "0.0.1",
-  "description": "made while learning react",
+  "name": "React_Timer",
+  "version": "1.0.0",
+  "description": "React sport timer, made while learning React",
+  "author": "Filip Ciślak",
   "main": "app.js",
   "browserslist": [
     "> 5%",
@@ -9,18 +10,16 @@
   ],
   "scripts": {
     "test": "test",
-    "build": "webpack -d --watch",
+    "build": "webpack",
     "watch": "webpack -d --watch",
     "start": "webpack-dev-server"
   },
   "author": "Filip Cislak",
   "license": "ISC",
   "dependencies": {
-    "chart.js": "^2.7.1",
     "normalize.css": "^8.0.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "webpack": "^3.10.0"
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.1.0",
@@ -38,6 +37,7 @@
     "postcss-plugin": "^1.0.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.1",
+    "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   }
 }
