@@ -73,5 +73,6 @@ menu {
 }
 
 .progressValue {
-  transition: all ease 0.3s;
+  transition: stroke-dashoffset ease;
+  transition-duration: 1s;
 }

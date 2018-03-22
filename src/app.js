@@ -12,7 +12,7 @@ class TimerApp extends React.Component {
 
     this.state = {
       //initial timer options
-        intervalTime : 20,
+        intervalTime : 6,
         restTime: 3,
         sets: 3,
 
@@ -20,7 +20,7 @@ class TimerApp extends React.Component {
         isPlaying: false,
         isOptions: false,
 
-        currentTime: 20,
+        currentTime: 6,
         currentSets: 3,
 
         currentTrainingState: "training",
