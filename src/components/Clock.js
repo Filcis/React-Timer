@@ -26,9 +26,9 @@ export class Clock extends React.Component {
     const currentTime = secondsToMs(this.props.currentTime);
     const initialTime = secondsToMs(this.props.initialTime);
 
-    let completionPercentage = this.calculateCompletionPercentage(this.props.currentTime, this.props.initialTime +1);
+    let completionPercentage = this.calculateCompletionPercentage(this.props.currentTime, this.props.initialTime);
     if (this.props.trainingState === "resting") {
-      completionPercentage = this.calculateCompletionPercentage(this.props.currentTime, this.props.restTime +1);
+      completionPercentage = this.calculateCompletionPercentage(this.props.currentTime, this.props.restTime);
     }
 
     return (
