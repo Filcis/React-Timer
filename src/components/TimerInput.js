@@ -27,6 +27,7 @@ export class TimerInput extends React.Component {
   render() {
     return (
       <div className = "optionsWrapper">
+      <h2>Ustawienia</h2>
           {this.renderOption("intervalTime", true, "Czas interwału")}
           {this.renderOption("restTime", true, "Czas odpoczynku")}
           {this.renderOption("sets",false, "Liczba powtórzeń")}
@@ -39,9 +40,9 @@ const TimerOption = (props) => (
   <div className="option">
     <p>{props.OptionName}</p>
     <div>
-      <IncrementButton clickHandler={props.handleIncrementButton} disabled={props.disabled}/>
+      <DecrementButton clickHandler={props.handleDecrementButton} disabled={props.disabled}/>      
       <p>{props.OptionValue}</p>
-      <DecrementButton clickHandler={props.handleDecrementButton} disabled={props.disabled}/>
+      <IncrementButton clickHandler={props.handleIncrementButton} disabled={props.disabled}/>
     </div>
   </div>
 )

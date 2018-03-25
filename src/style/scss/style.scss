@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import './colors.scss';
 
 html,
 body {
@@ -7,8 +8,8 @@ body {
 }
 
 body {
-  color: white;
-  background-color: steelblue;
+  color: $text;
+  background-color: $background;
 }
 
 .container {
@@ -17,8 +18,38 @@ body {
 }
 
 .mainContentWrapper{
-  max-width: 1040px;
-  margin:4em auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.optionsWrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: $optionsBackground;
+    width: 400px;
+    width: 20vw;
+    height: 100vh;
+    border-right: 1px solid $lines;
+}
+
+.option {
+ margin: 0 2em;
+ div {
+   margin: 0 auto;
+   p {
+     display: inline-block;
+     margin: 0 1em;
+   }
+ }
+}
+
+.timerWrapper {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 button {
@@ -26,37 +57,19 @@ button {
   background: none;
   padding: 0.7em;
   border-radius: 0.5em;
+  background-color: $button;
   color: white;
 }
 
 menu {
   margin: 0;
-  padding: 0 2em;
-  display: flex;
-  background-color: #374e61;
-  position: relative;
+  padding: 0.2em 0;
+  border-bottom: 1px solid $lines;
+  background-color: $menuBackground;
   h1 {
-    flex-grow: 2;
     text-align: center;
+    color: $h1;
   }
-}
-
-.optionsButtonWrapper {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  height: 100%;
-}
-
-.optionsWrapper {
-    display: flex;
-}
-
-.option {
- margin: 0 2em;
- div {
-   margin: 0 auto;
- }
 }
 
 .progressBarWrapper {
@@ -70,6 +83,10 @@ menu {
     transform: translate(-50%, -50%);
     margin: 0;
   }
+}
+
+.circleProgressBackground {
+  stroke: $circleMeter;
 }
 
 .progressValue {
