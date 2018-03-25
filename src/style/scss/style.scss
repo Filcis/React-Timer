@@ -12,12 +12,19 @@ body {
   background-color: $background;
 }
 
+#app {
+  height: 100%;
+}
+
 .container {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .mainContentWrapper{
+  position: relative;
+  flex: 1;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -30,22 +37,59 @@ body {
     background-color: $optionsBackground;
     width: 400px;
     width: 20vw;
-    height: 100vh;
+    height: 100%;
     border-right: 1px solid $lines;
+    h2 {
+      padding: 1em 0 1.5em 0;
+      border-bottom: 1px solid $lines;
+      text-align: center;
+    }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    padding: 1em 0 2em 0;
+    border-bottom: 1px solid $lines;
+  }
 }
 
 .option {
- margin: 0 2em;
+  text-align: center;
  div {
    margin: 0 auto;
-   p {
-     display: inline-block;
-     margin: 0 1em;
+   height: 2em;
+   display: inline-block;
+   input {
+     margin: 0;
+     padding: 0;
+     border: none;
+     text-align: center;
+     height: 100%;
+     &[type = button] {
+       cursor: pointer;
+       background: none;
+       background-color: $buttonInput;
+       color: white;
+       width: 2em;
+     }
+   }
+   button {
+     margin: 0;
+   }
+   .increment {
+     border-radius: 0 1em 1em 0;
+   }
+   .decrement {
+     border-radius: 1em 0 0 1em;
    }
  }
 }
 
 .timerWrapper {
+  margin: 4em 0;
   width: 100%;
   align-items: center;
   display: flex;
@@ -53,12 +97,18 @@ body {
 }
 
 button {
-  border: 1px solid white;
+  cursor: pointer;
+  border: 1px solid $lines;
   background: none;
-  padding: 0.7em;
-  border-radius: 0.5em;
+  padding: 1.2em;
+  border-radius: 0.25em;
   background-color: $button;
-  color: white;
+  color: $text;
+  transition: background 0.2s ease;
+  &:hover {
+    background-color: $buttonHover;
+    color: white;
+  }
 }
 
 menu {

@@ -23,7 +23,7 @@ export const ProgressCircle = (props) => {
 
   return(
     <div className="progressBarWrapper">
-      <svg width="300" height="300" viewBox="0 0 300 300">
+      <svg width="400" height="400" viewBox="0 0 300 300">
         <circle className="circleProgressBackground" cx="150" cy="150" r="144" fill="none" stroke-width="12" transform="rotate(-90 150 150)"/>
         <circle className={circleClassName} cx="150" cy="150" r="144" fill="none" stroke={completionMeterColor} stroke-width="12"
          stroke-dasharray="904.8" stroke-dashoffset={completion} transform="rotate(-90 150 150)"
