@@ -71,13 +71,6 @@ class TimerApp extends React.Component {
   );
   }
 
-  resetHandler () {
-    this.setState((prevState) => {
-      return {isActive: !prevState.isActive, isPlaying: false, currentTrainingState: "training"}
-    }
-  );
-  }
-
   decrementState(state, value = 1) {
     this.setState((prevState) => {
       return {[state]: prevState[state] - value}
@@ -92,7 +85,7 @@ class TimerApp extends React.Component {
       if (this.state.currentSets !== 0 && this.state.currentTrainingState === "training") {
         this.decrementState("currentSets", 1);
       } else if(this.state.currentSets === 0) {
-        this.pauseClock();
+        this.resetClock();
         return;
       }
       this.switchTrainingState();
@@ -105,6 +98,11 @@ class TimerApp extends React.Component {
 
   pauseClock() {
     clearInterval(this.TimerInstantion);
+  }
+
+  resetClock() {
+    this.pauseClock();
+    this.setState({isPlaying: false, isActive: false, currentTime: this.state.intervalTime, currentSets: this.state.sets});
   }
 
   switchTrainingState() {
@@ -149,7 +147,7 @@ class TimerApp extends React.Component {
             isActive={this.state.isActive}
             startButtonHandler={this.startTraining.bind(this)}
             togglePlayButtonHandler={this.togglePlayHandler.bind(this)}
-            resetHandler={this.resetHandler.bind(this)}
+            resetHandler={this.resetClock.bind(this)}
           />
           </div>
         )
