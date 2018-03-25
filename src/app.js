@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {TimerInput} from './components/TimerInput';
 import {Clock} from './components/Clock';
-import {Controls, OptionsButton} from './components/Buttons';
+import {Controls} from './components/Controls';
 import 'normalize.css';
 import './style/scss/style.scss'
 

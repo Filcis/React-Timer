@@ -16,19 +16,19 @@ export const Controls = (props) => {
 }
 
 const Start = (props) => {
-  return <button onClick={props.startButtonHandler}>start</button>
+  return <button type="button" onClick={props.startButtonHandler}>start</button>
 }
 
 const TogglePlay = (props) => {
-  return <button onClick={props.togglePlayButtonHandler}>play / pause</button>
+  return <button type="button" onClick={props.togglePlayButtonHandler}>play / pause</button>
 }
 
 const Stop = (props) => {
-  return <button onClick={props.resetHandler}>stop</button>
+  return <button type="button" onClick={props.resetHandler}>stop</button>
 }
 
 export const OptionsButton = (props) => {
   return (
-      <button onClick={props.toggleOptionsHandler}>Opcje</button>
+      <button type="button" onClick={props.toggleOptionsHandler}>Opcje</button>
   )
 }

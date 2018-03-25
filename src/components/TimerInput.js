@@ -40,7 +40,7 @@ const TimerOption = (props) => (
   <div className="option">
     <p>{props.OptionName}</p>
     <div>
-      <DecrementButton clickHandler={props.handleDecrementButton} disabled={props.disabled}/>      
+      <DecrementButton clickHandler={props.handleDecrementButton} disabled={props.disabled}/>
       <p>{props.OptionValue}</p>
       <IncrementButton clickHandler={props.handleIncrementButton} disabled={props.disabled}/>
     </div>
@@ -48,9 +48,9 @@ const TimerOption = (props) => (
 )
 
 const IncrementButton = (props) => (
-  <button onClick={props.clickHandler}disabled={props.disabled}>+</button>
+  <button type="button" onClick={props.clickHandler}disabled={props.disabled}>+</button>
 )
 
 const DecrementButton = (props) => (
-  <button onClick={props.clickHandler}disabled={props.disabled}>-</button>
+  <button type="button" onClick={props.clickHandler}disabled={props.disabled}>-</button>
 )
