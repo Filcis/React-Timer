@@ -18,7 +18,6 @@ class TimerApp extends React.Component {
 
         isActive: false,
         isPlaying: false,
-        isOptions: false,
 
         currentTime: 6,
         currentSets: 3,
@@ -55,13 +54,6 @@ class TimerApp extends React.Component {
       return {isActive: true, currentTime:this.state.intervalTime, isPlaying: true}
     });
 
-  }
-
-  toggleOptionsHandler () {
-    this.setState((prevState) => {
-      return {isOptions: !prevState.isOptions}
-    }
-  );
   }
 
   togglePlayHandler () {
@@ -123,19 +115,15 @@ class TimerApp extends React.Component {
   }
 
   render() {
-    let content = null;
-
-      if(this.state.isOptions) {
-          content = (
-            <TimerInput
-              timerOptions={this.state}
-              handleIncrementButton={this.handleIncrementButton.bind(this)}
-              handleDecrementButton={this.handleDecrementButton.bind(this)}
-            />
-          )
-      } else {
-        content = (
-          <div>
+      return(
+        <div className="container">
+          <MenuBar />
+          <div className="mainContentWrapper">
+          <TimerInput
+            timerOptions={this.state}
+            handleIncrementButton={this.handleIncrementButton.bind(this)}
+            handleDecrementButton={this.handleDecrementButton.bind(this)}
+          />
           <Clock
           isActive={this.state.isActive}
           trainingState={this.state.currentTrainingState}
@@ -144,20 +132,11 @@ class TimerApp extends React.Component {
           restTime={this.state.restTime}
            />
           <Controls
-            isActive={this.state.isActive}
-            startButtonHandler={this.startTraining.bind(this)}
-            togglePlayButtonHandler={this.togglePlayHandler.bind(this)}
-            resetHandler={this.resetClock.bind(this)}
-          />
-          </div>
-        )
-      }
-
-      return(
-        <div className="container">
-          <MenuBar toggleOptionsHandler={this.toggleOptionsHandler.bind(this)}  isActive={this.state.isActive} title="React Timer"/>
-          <div className="mainContentWrapper">
-            {content}
+           isActive={this.state.isActive}
+           startButtonHandler={this.startTraining.bind(this)}
+           togglePlayButtonHandler={this.togglePlayHandler.bind(this)}
+           resetHandler={this.resetClock.bind(this)}
+           />
           </div>
         </div>
       );
@@ -167,9 +146,6 @@ class TimerApp extends React.Component {
 const MenuBar = (props) => {
   return (
     <menu>
-    <div className="optionsButtonWrapper">
-      <OptionsButton toggleOptionsHandler={props.toggleOptionsHandler}  isActive={props.isActive} />
-    </div>
       <h1>{props.title}</h1>
     </menu>
   )

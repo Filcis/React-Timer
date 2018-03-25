@@ -26,9 +26,3 @@ const TogglePlay = (props) => {
 const Stop = (props) => {
   return <button onClick={props.resetHandler}>stop</button>
 }
-
-export const OptionsButton = (props) => {
-  return (
-      <button onClick={props.toggleOptionsHandler}>Opcje</button>
-  )
-}
