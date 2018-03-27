@@ -126,6 +126,8 @@ class TimerApp extends React.Component {
 
   render() {
     const overallTime = (this.state.intervalTime + this.state.restTime) * this.state.sets;
+    const currentSetBySets = this.state.currentSets + "/" + this.state.sets;
+
     return (
       <div className="container">
         <MenuBar title="React Timer" />
@@ -146,6 +148,7 @@ class TimerApp extends React.Component {
               initialTime={this.state.intervalTime}
               restTime={this.state.restTime}
               overallTime = {overallTime}
+              currentSetBySets = {currentSetBySets}
             />
             <Controls
               isActive={this.state.isActive}
