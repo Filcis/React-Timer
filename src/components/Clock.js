@@ -36,7 +36,7 @@ export class Clock extends React.Component {
       {this.props.isActive ? (
             <ProgressCircle trainingState={this.props.trainingState} initialTime={initialTime} timeLeft={currentTime} completionPercentage={completionPercentage}/>
             ) : (
-            <ProgressCircle timeLeft={initialTime} completionPercentage={0}/>
+            <ProgressCircle trainingState="not started" timeLeft={initialTime} completionPercentage={0}/>
             )}
       </div>
     )

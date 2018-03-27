@@ -56,7 +56,7 @@ class TimerApp extends React.Component {
   startTraining() {
     this.setState(() => {
       // set state to active, update current time and sets
-      return {isActive: true, currentTime: this.state.intervalTime, isPlaying: true}
+      return {isActive: true, currentTime: this.state.intervalTime, currentSets: this.state.sets, isPlaying: true}
     });
 
   }
@@ -102,7 +102,7 @@ class TimerApp extends React.Component {
 
   resetClock() {
     this.pauseClock();
-    this.setState({isPlaying: false, isActive: false, currentTime: this.state.intervalTime, currentSets: this.state.sets});
+    this.setState({isPlaying: false, isActive: false, currentTime: this.state.intervalTime, currentSets: this.state.sets, currentTrainingState: "training"});
   }
 
   switchTrainingState() {

@@ -54,6 +54,14 @@ ul {
     padding: 1em 0 2em 0;
     border-bottom: 1px solid $lines;
   }
+  &.disabled {
+    input {
+      background-color: lightgray;
+    }
+    input[type=button] {
+      background-color: gray !important;
+    }
+  }
 }
 
 .option {
@@ -125,12 +133,14 @@ menu {
 .progressBarWrapper {
   margin:2em;
   position: relative;
-  h2 {
-    font-size: 3em;
+  .info{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  h2 {
+    font-size: 3em;
     margin: 0;
   }
 }

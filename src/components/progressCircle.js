@@ -29,7 +29,10 @@ export const ProgressCircle = (props) => {
          stroke-dasharray="904.8" stroke-dashoffset={completion} transform="rotate(-90 150 150)"
         />
       </svg>
-      <h2>{props.timeLeft}</h2>
+      <div className="info">
+        <span>{props.trainingState}</span>
+        <h2>{props.timeLeft}</h2>
+      </div>
     </div>
   )
 }
