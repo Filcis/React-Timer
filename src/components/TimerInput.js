@@ -8,10 +8,10 @@ export class TimerInput extends React.Component {
 
   renderOption(i, convertToMs = false, optionName) {
     let value = '';
-    convertToMs ? value = secondsToMs(this.props.timerOptions[i]) : value = this.props.timerOptions[i];
+    convertToMs ? value = secondsToMs(this.props[i]) : value = this.props[i];
     return (
       <TimerOption
-        disabled={this.props.timerOptions.isActive}
+        disabled={this.props.isActive}
         OptionValue={value}
         OptionName={optionName}
         handleIncrementButton={this.props.handleIncrementButton(i)}
@@ -26,7 +26,8 @@ export class TimerInput extends React.Component {
 
   render() {
     let optionsClassName="";
-    if(this.props.timerOptions.isActive) {optionsClassName ="disabled"; console.log("disabling options")}
+    console.log('render called');
+    if(this.props.isActive) {optionsClassName ="disabled";}
     return (
       <div className = "optionsWrapper">
       <h2>Ustawienia</h2>

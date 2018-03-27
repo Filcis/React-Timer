@@ -130,7 +130,10 @@ class TimerApp extends React.Component {
         <MenuBar title="React Timer" />
         <div className="mainContentWrapper">
           <TimerInput
-            timerOptions={this.state}
+            intervalTime={this.state.intervalTime}
+            restTime={this.state.restTime}
+            sets={this.state.sets}
+            isActive={this.state.isActive}
             handleIncrementButton={this.handleIncrementButton.bind(this)}
             handleDecrementButton={this.handleDecrementButton.bind(this)}
           />
