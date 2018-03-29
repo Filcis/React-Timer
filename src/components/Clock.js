@@ -25,7 +25,6 @@ export class Clock extends React.Component {
   render() {
     const currentTime = secondsToMs(this.props.currentTime);
     const initialTime = secondsToMs(this.props.initialTime);
-    const overallTime = secondsToMs(this.props.overallTime);
 
     let completionPercentage = this.calculateCompletionPercentage(this.props.currentTime, this.props.initialTime);
     if (this.props.trainingState === "resting") {
@@ -33,13 +32,11 @@ export class Clock extends React.Component {
     }
 
     return (
-      <div>
-      {this.props.isActive ? (
-            <ProgressCircle trainingState={this.props.trainingState} initialTime={initialTime} timeLeft={currentTime} completionPercentage={completionPercentage} overallTime={overallTime} currentSetBySets={this.props.currentSetBySets}/>
+      this.props.isActive ? (
+            <ProgressCircle trainingState={this.props.trainingState} initialTime={initialTime} timeLeft={currentTime} completionPercentage={completionPercentage} />
             ) : (
-            <ProgressCircle trainingState="not started" timeLeft={initialTime} completionPercentage={0} overallTime={overallTime} currentSetBySets={this.props.currentSetBySets}/>
-            )}
-      </div>
+            <ProgressCircle trainingState="not started" timeLeft={initialTime} completionPercentage={0}/>
+            )
     )
   }
 }

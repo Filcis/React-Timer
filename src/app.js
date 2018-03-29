@@ -125,7 +125,7 @@ class TimerApp extends React.Component {
   }
 
   render() {
-    const overallTime = (this.state.intervalTime + this.state.restTime) * this.state.sets;
+    // const overallTime = (this.state.intervalTime + this.state.restTime) * this.state.sets;
     const currentSetBySets = this.state.currentSets + "/" + this.state.sets;
 
     return (
@@ -141,21 +141,27 @@ class TimerApp extends React.Component {
             handleDecrementButton={this.handleDecrementButton.bind(this)}
           />
           <div className="timerWrapper">
-            <Clock
-              isActive={this.state.isActive}
-              trainingState={this.state.currentTrainingState}
-              currentTime={this.state.currentTime}
-              initialTime={this.state.intervalTime}
-              restTime={this.state.restTime}
-              overallTime = {overallTime}
-              currentSetBySets = {currentSetBySets}
-            />
-            <Controls
-              isActive={this.state.isActive}
-              startButtonHandler={this.startTraining.bind(this)}
-              togglePlayButtonHandler={this.togglePlayHandler.bind(this)}
-              resetHandler={this.resetClock.bind(this)}
-            />
+            <div className="trainingInfo">
+
+              <h2>Current set: {currentSetBySets}</h2>
+              <h2>Training state: {this.state.currentTrainingState}</h2>
+            </div>
+            <div className="clockWrapper">
+              <Clock
+                isActive={this.state.isActive}
+                trainingState={this.state.currentTrainingState}
+                currentTime={this.state.currentTime}
+                initialTime={this.state.intervalTime}
+                restTime={this.state.restTime}
+                currentSetBySets = {currentSetBySets}
+              />
+              <Controls
+                isActive={this.state.isActive}
+                startButtonHandler={this.startTraining.bind(this)}
+                togglePlayButtonHandler={this.togglePlayHandler.bind(this)}
+                resetHandler={this.resetClock.bind(this)}
+              />
+            </div>
           </div>
         </div>
     </div>

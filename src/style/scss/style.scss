@@ -33,16 +33,16 @@ body {
 .optionsWrapper {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    // position: absolute;
     background-color: $optionsBackground;
-    width: 400px;
-    width: 20vw;
+    width: 600px;
     height: 100%;
     border-right: 1px solid $lines;
     h2 {
-      padding: 1em 0 1.5em 0;
+      padding: 1.5em 0 1.5em 0;
       border-bottom: 1px solid $lines;
       text-align: center;
+      margin: 0;
     }
 }
 
@@ -97,11 +97,24 @@ ul {
 }
 
 .timerWrapper {
-  margin: 4em 0;
   width: 100%;
-  align-items: center;
+  // align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+.clockWrapper{
+  padding: 0 5em;
+}
+
+.trainingInfo {
+  background-color: $optionsBackground;
+  width: 100%;
+  border-bottom: 1px solid $lines;
+  h2 {
+    padding: 1.5em 0 1.5em 0;
+    margin: 0 1em;
+  }
 }
 
 button {
@@ -131,7 +144,8 @@ menu {
 }
 
 .progressBarWrapper {
-  margin:2em;
+  margin:4em 0;
+  width: 400px;
   position: relative;
   .info{
     position: absolute;
