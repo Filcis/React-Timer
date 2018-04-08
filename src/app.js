@@ -85,7 +85,7 @@ class TimerApp extends React.Component {
       if (this.state.currentSets !== 0 && this.state.currentTrainingState === "training") {
         this.decrementState("currentSets", 1);
       } else if (this.state.currentSets === 0) {
-        this.resetClock();
+        this.finishWorkout();
         return;
       }
       this.switchTrainingState();
@@ -98,6 +98,11 @@ class TimerApp extends React.Component {
 
   pauseClock() {
     clearInterval(this.TimerInstantion);
+  }
+
+  finishWorkout() {
+    this.pauseClock();
+    this.setState({currentTrainingState: "finished"});
   }
 
   resetClock() {
@@ -142,7 +147,6 @@ class TimerApp extends React.Component {
           />
           <div className="timerWrapper">
             <div className="trainingInfo">
-
               <h2>Current set: {currentSetBySets}</h2>
               <h2>Training state: {this.state.currentTrainingState}</h2>
             </div>

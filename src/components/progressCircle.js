@@ -2,8 +2,8 @@ import React from 'react';
 
 export const ProgressCircle = (props) => {
 
-  let strokeColor = "white";
-  let completionMeterColor = "white";
+  let strokeColor = "grey";
+  let completionMeterColor = "#21A0A0";
 
   switch (props.trainingState) {
     case "training" :
