@@ -349,8 +349,11 @@ body {
   font-family: Roboto; }
 
 body {
-  color: white;
-  background-color: steelblue; }
+  color: #21A0A0;
+  background-color: #F2F4ED; }
+
+#app {
+  height: 100%; }
 
 .container {
   display: -webkit-box;
@@ -359,65 +362,164 @@ body {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
-          flex-direction: column; }
+          flex-direction: column;
+  height: 100%; }
 
 .mainContentWrapper {
-  max-width: 1040px;
-  margin: 4em auto; }
-
-button {
-  border: 1px solid white;
-  background: none;
-  padding: 0.7em;
-  border-radius: 0.5em;
-  color: white; }
-
-menu {
-  margin: 0;
-  padding: 0 2em;
+  width: 100%;
+  margin-top: 6em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #374e61;
-  position: relative; }
-  menu h1 {
-    -webkit-box-flex: 2;
-        -ms-flex-positive: 2;
-            flex-grow: 2;
-    text-align: center; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
-.optionsButtonWrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.optionsWrapper {
+  margin-top: 1em;
+  color: grey; }
+  .optionsWrapper h2 {
+    padding: 0.25em 0;
+    border-bottom: 1px solid lightgray; }
+  .optionsWrapper ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+
+.option {
+  text-align: center; }
+  .option div {
+    margin: 0 auto;
+    height: 2em;
+    display: inline-block; }
+    .option div input {
+      margin: 0;
+      padding: 0;
+      border: none;
+      text-align: center;
+      height: 2em;
+      line-height: 2;
+      background-color: #C7DBDB; }
+      .option div input[type=button] {
+        cursor: pointer;
+        background: none;
+        background-color: #21A0A0;
+        color: white;
+        width: 2em; }
+    .option div button {
+      margin: 0; }
+    .option div .increment {
+      border-radius: 0 1em 1em 0; }
+    .option div .decrement {
+      border-radius: 1em 0 0 1em; }
+
+.controls {
+  margin-top: 2em; }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  ul li {
+    padding: 1.2em 0; }
+    ul li p {
+      margin-bottom: 0.5em;
+      margin-top: 0; }
+  ul.disabled input {
+    background-color: lightgray; }
+  ul.disabled input[type=button] {
+    background-color: gray !important; }
+
+.clockWrapper {
+  padding-right: 100px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: absolute;
-  height: 100%; }
-
-.optionsWrapper {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
-.option {
-  margin: 0 2em; }
-  .option div {
-    margin: 0 auto; }
+.trainingInfo {
+  background-color: #5DB9B9;
+  width: 100%;
+  border-bottom: 1px solid #AEDCDC; }
+  .trainingInfo h2 {
+    padding: 1.5em 0 1.5em 0;
+    margin: 0 1em; }
+
+button {
+  cursor: pointer;
+  border: none;
+  font-size: 1em;
+  background: none;
+  padding: 1em;
+  border-radius: 1.25em;
+  background-color: #21A0A0;
+  color: white;
+  -webkit-transition: background 0.2s ease;
+  transition: background 0.2s ease; }
+  button:hover {
+    background-color: #21A0A0; }
+
+menu {
+  background-color: #21A0A0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-bottom: 1px solid #AEDCDC; }
+  menu h1 {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    text-align: center;
+    color: #FCFFF7; }
 
 .progressBarWrapper {
-  margin: 2em;
+  width: 400px;
   position: relative; }
-  .progressBarWrapper h2 {
-    font-size: 3em;
+  .progressBarWrapper .info {
     position: absolute;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+  .progressBarWrapper h2 {
+    font-size: 4em;
     margin: 0; }
+  .progressBarWrapper svg {
+    width: 100%;
+    height: 100%; }
+
+.circleProgressBackground {
+  stroke: #CFD1CB; }
 
 .progressValue {
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s; }
+  -webkit-transition: stroke-dashoffset ease;
+  transition: stroke-dashoffset ease;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s; }
