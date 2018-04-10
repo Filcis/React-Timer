@@ -6,7 +6,7 @@ export const Controls = (props) => {
   const isActive = props.isActive;
 
   return (
-    <div>
+    <div className="controls">
     { isActive
       ? (<div><TogglePlay togglePlayButtonHandler={props.togglePlayButtonHandler}/> <Stop resetHandler={props.resetHandler}/></div>)
       : (<Start startButtonHandler={props.startButtonHandler}/>)

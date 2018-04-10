@@ -23,45 +23,31 @@ body {
 }
 
 .mainContentWrapper{
-  position: relative;
-  flex: 1;
   width: 100%;
+  margin-top: 6em;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar {
+  
 }
 
 .optionsWrapper {
-    display: flex;
-    flex-direction: column;
-    // position: absolute;
-    background-color: $optionsBackground;
-    width: 600px;
-    height: 100%;
-    border-right: 1px solid $lines;
-    h2 {
-      padding: 1.5em 0 1.5em 0;
-      border-bottom: 1px solid $lines;
-      text-align: center;
-      margin: 0;
-    }
-}
+    margin-top: 1em;
+    color: grey ;
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  li {
-    padding: 1em 0 2em 0;
-    border-bottom: 1px solid $lines;
-  }
-  &.disabled {
-    input {
-      background-color: lightgray;
+    h2 {
+      padding: 0.25em 0;
+      border-bottom: 1px solid lightgray;
     }
-    input[type=button] {
-      background-color: gray !important;
+    ul {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
     }
-  }
 }
 
 .option {
@@ -75,7 +61,9 @@ ul {
      padding: 0;
      border: none;
      text-align: center;
-     height: 100%;
+     height: 2em;
+     line-height: 2;
+     background-color: #C7DBDB;
      &[type = button] {
        cursor: pointer;
        background: none;
@@ -96,15 +84,38 @@ ul {
  }
 }
 
-.timerWrapper {
-  width: 100%;
-  // align-items: center;
-  display: flex;
-  flex-direction: column;
+.controls {
+  margin-top: 2em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    padding: 1.2em 0;
+    p {
+      margin-bottom: 0.5em;
+      margin-top: 0;
+    }
+  }
+  &.disabled {
+    input {
+      background-color: lightgray;
+    }
+    input[type=button] {
+      background-color: gray !important;
+    }
+  }
 }
 
 .clockWrapper{
-  padding: 0 5em;
+  padding-right: 100px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+   //optical compensation
 }
 
 .trainingInfo {
@@ -119,43 +130,47 @@ ul {
 
 button {
   cursor: pointer;
-  border: 1px solid $lines;
+  border: none;
+  font-size: 1em;
   background: none;
-  padding: 1.2em;
-  border-radius: 0.25em;
+  padding: 1em;
+  border-radius: 1.25em;
   background-color: $button;
-  color: $text;
+  color: white;
   transition: background 0.2s ease;
   &:hover {
     background-color: $buttonHover;
-    color: white;
   }
 }
 
 menu {
-  margin: 0;
-  padding: 0.2em 0;
-  border-bottom: 1px solid $lines;
   background-color: $menuBackground;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid $lines;
   h1 {
+    flex-grow: 1;
     text-align: center;
     color: $h1;
   }
 }
 
 .progressBarWrapper {
-  margin:4em 0;
   width: 400px;
   position: relative;
-  .info{
+  .info {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
   h2 {
-    font-size: 3em;
+    font-size: 4em;
     margin: 0;
+  }
+  svg {
+    width: 100%;
+    height:100%;
   }
 }
 

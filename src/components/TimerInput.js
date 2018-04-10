@@ -30,7 +30,7 @@ export class TimerInput extends React.Component {
     if(this.props.isActive) {optionsClassName ="disabled";}
     return (
       <div className = "optionsWrapper">
-      <h2>Ustawienia</h2>
+      <h2>OPCJE</h2>
       <ul className={optionsClassName}>
           {this.renderOption("intervalTime", true, "Czas interwału")}
           {this.renderOption("restTime", true, "Czas odpoczynku")}
