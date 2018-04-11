@@ -30,7 +30,9 @@ export const ProgressCircle = (props) => {
         />
       </svg>
       <div className="info">
+      <p className="trainingState">{props.trainingState}</p>
         <h2>{props.timeLeft}</h2>
+        <p className="currentSet">Current set: {props.currentSetBySets}</p>
       </div>
     </div>
   )

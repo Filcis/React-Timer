@@ -35,6 +35,23 @@ body {
 
 }
 
+.trainingState, .currentSet {
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  color: gray;
+}
+
+.trainingState {
+  margin: 0.25em 0;
+  font-size: 1.5em;
+}
+
+.currentSet {
+  margin: 0.45em 0;
+  font-size: 0.85em;
+}
+
 .optionsWrapper {
     color: grey;
 

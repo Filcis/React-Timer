@@ -20,7 +20,7 @@ class TimerApp extends React.Component {
       isPlaying: false,
 
       currentTime: 6,
-      currentSets: 1,
+      currentSets: 0,
 
       currentTrainingState: "training"
     }
@@ -56,7 +56,7 @@ class TimerApp extends React.Component {
   startTraining() {
     this.setState(() => {
       // set state to active, update current time and sets
-      return {isActive: true, currentTime: this.state.intervalTime, currentSets: this.state.sets, isPlaying: true}
+      return {isActive: true, currentTime: this.state.intervalTime, isPlaying: true}
     });
 
   }
@@ -77,14 +77,23 @@ class TimerApp extends React.Component {
     });
   }
 
+  incrementState(state, value = 1) {
+    this.setState((prevState) => {
+      return {
+        [state]: prevState[state] + value
+      }
+    });
+  }
+
   countDown() {
-    // decrement state as long as its bigger than 0
+    // TODO: Simplify function logic, mayby divide into two methods
     if (this.state.currentTime !== 0) {
+      if (this.state.currentTime === this.state.intervalTime && this.state.currentSets !== this.state.sets && this.state.currentTrainingState === "training") {
+        this.incrementState("currentSets", 1);
+      }
       this.decrementState("currentTime", 1);
     } else {
-      if (this.state.currentSets !== 0 && this.state.currentTrainingState === "training") {
-        this.decrementState("currentSets", 1);
-      } else if (this.state.currentSets === 0) {
+      if (this.state.currentSets === this.state.sets) {
         this.finishWorkout();
         return;
       }
@@ -107,7 +116,7 @@ class TimerApp extends React.Component {
 
   resetClock() {
     this.pauseClock();
-    this.setState({isPlaying: false, isActive: false, currentTime: this.state.intervalTime, currentSets: this.state.sets, currentTrainingState: "training"});
+    this.setState({isPlaying: false, isActive: false, currentTime: this.state.intervalTime, currentSets: 1, currentTrainingState: "training"});
   }
 
   switchTrainingState() {
@@ -131,11 +140,11 @@ class TimerApp extends React.Component {
 
   render() {
     // const overallTime = (this.state.intervalTime + this.state.restTime) * this.state.sets;
-    const currentSetBySets = this.state.currentSets;
+    const currentSetBySets = this.state.currentSets + "/" + this.state.sets;
 
     return (
       <div className="container">
-        <MenuBar title="React Timer" />
+        <MenuBar title="React Tabata Timer" />
         <div className="mainContentWrapper">
             <div className="clockWrapper">
               <Clock
