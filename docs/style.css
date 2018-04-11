@@ -367,7 +367,7 @@ body {
 
 .mainContentWrapper {
   width: 100%;
-  margin-top: 6em;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -382,10 +382,24 @@ body {
       -ms-flex-align: center;
           align-items: center; }
 
+.trainingState, .currentSet {
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  color: gray; }
+
+.trainingState {
+  margin: 0.25em 0;
+  font-size: 1.5em; }
+
+.currentSet {
+  margin: 0.45em 0;
+  font-size: 0.85em; }
+
 .optionsWrapper {
-  margin-top: 1em;
   color: grey; }
   .optionsWrapper h2 {
+    margin-top: 0;
     padding: 0.25em 0;
     border-bottom: 1px solid lightgray; }
   .optionsWrapper ul {
@@ -428,7 +442,8 @@ body {
       border-radius: 1em 0 0 1em; }
 
 .controls {
-  margin-top: 2em; }
+  margin-top: 2em;
+  padding-bottom: 2em; }
 
 ul {
   list-style: none;
